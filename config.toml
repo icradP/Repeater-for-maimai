@@ -1,0 +1,9 @@
+[plugin]
+name = "repeater_plugin"
+version = "1.0.0"
+enabled = true
+
+[repeater]
+enabled = true
+min_distinct_users = 2
+recent_limit = 20
