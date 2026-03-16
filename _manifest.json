@@ -1,18 +1,18 @@
 {
   "manifest_version": 1,
-  "name": "复读器插件|Repeater Plugin",
+  "name": "简单的复读器插件|Repeater Plugin",
   "version": "1.0.0",
-  "description": "当同一内容被超过两位不同用户连续发送时自动复读",
+  "description": "当同一内容被超过X位不同用户连续发送时自动复读",
   "author": {
-    "name": "MaiBot Community",
-    "url": "https://github.com/MaiM-with-u"
+    "name": "icradP",
+    "url": "https://github.com/icradP/Repeater-for-maimai"
   },
   "license": "GPL-v3.0-or-later",
   "host_application": {
     "min_version": "0.10.3"
   },
-  "homepage_url": "https://github.com/MaiM-with-u",
-  "repository_url": "https://github.com/MaiM-with-u",
+  "homepage_url": "https://github.com/icradP/Repeater-for-maimai",
+  "repository_url": "https://github.com/icradP/Repeater-for-maimai",
   "keywords": [
     "repeater",
     "chat",
@@ -38,7 +38,7 @@
     "features": [
       "连续同内容检测",
       "仅统计非机器人用户",
-      "超过两位不同用户触发复读",
+      "超过两X位不同用户触发复读",
       "每段内容最多复读一次"
     ]
   },
