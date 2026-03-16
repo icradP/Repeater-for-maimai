@@ -16,7 +16,7 @@ class RepeaterAction(BaseAction):
     action_parameters = {}
     action_require = [
         "当最近连续消息是同一内容（文本或图片）时使用",
-        "当同一内容的发送者中不同用户数达到两人及以上时使用",
+        "当同一内容的发送者中不同用户数达到配置的阈值（如3人）及以上时使用",
         "统计时不包含机器人自己",
         "发送内容为上一个人的原始发言（文本或图片）",
     ]
@@ -114,6 +114,17 @@ class RepeaterPlugin(BasePlugin):
 
     def get_plugin_components(self) -> List[Tuple[ComponentInfo, Type]]:
         components: List[Tuple[ComponentInfo, Type]] = []
-        if self.config.get("repeater", {}).get("enabled", True):
-            components.append((RepeaterAction.get_action_info(), RepeaterAction))
+        repeater_config = self.config.get("repeater", {})
+        if repeater_config.get("enabled", True):
+            action_info = RepeaterAction.get_action_info()
+            # 动态注入配置的阈值到 action_require
+            min_users = repeater_config.get("min_distinct_users", 2)
+            new_require = []
+            for req in action_info.action_require:
+                if "配置的阈值" in req:
+                    new_require.append(f"当同一内容的发送者中不同用户数达到 {min_users} 人及以上时使用")
+                else:
+                    new_require.append(req)
+            action_info.action_require = new_require
+            components.append((action_info, RepeaterAction))
         return components

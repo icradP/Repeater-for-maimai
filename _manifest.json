@@ -2,7 +2,7 @@
   "manifest_version": 1,
   "name": "简单的复读器插件|Repeater Plugin",
   "version": "1.0.0",
-  "description": "当同一内容被超过X位不同用户连续发送时自动复读",
+  "description": "当同一内容被超过指定数量（默认3位）不同用户连续发送时自动复读",
   "author": {
     "name": "icradP",
     "url": "https://github.com/icradP/Repeater-for-maimai"
@@ -38,7 +38,7 @@
     "features": [
       "连续同内容检测",
       "仅统计非机器人用户",
-      "超过两X位不同用户触发复读",
+      "超过指定数量（默认3位）不同用户触发复读",
       "每段内容最多复读一次"
     ]
   },
