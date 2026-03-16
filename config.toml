@@ -5,5 +5,5 @@ enabled = true
 
 [repeater]
 enabled = true
-min_distinct_users = 2
+min_distinct_users = 3
 recent_limit = 20
